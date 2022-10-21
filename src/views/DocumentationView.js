@@ -4,6 +4,7 @@ import styled from "styled-components";
 import DocumentComponent from "../components/documentation/DocumentComponent";
 
 import Loading from "../components/generic/Loading";
+import Countdown from "../components/timers/Countdown";
 
 const Container = styled.div`
   display: flex;
@@ -30,6 +31,18 @@ const Documentation = () => {
             {
               prop: "size",
               description: "Changes the size of the loading spinner",
+              type: "string",
+              defaultValue: "medium",
+            },
+          ]}
+        />
+        <DocumentComponent
+          title="Countdown Timer "
+          component={<Countdown />}
+          propDocs={[
+            {
+              prop: "reset",
+              description: "returns all settings to their default values and clears any state",
               type: "string",
               defaultValue: "medium",
             },
