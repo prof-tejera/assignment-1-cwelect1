@@ -6,9 +6,10 @@ import Countdown from "../components/timers/Countdown";
 import XY from "../components/timers/XY";
 import Tabata from "../components/timers/Tabata";
 
-const Timers = styled.div`
-  height: 85vh;
+const Timers = styled.section`
+  height: 35vh;
   width: 100vw;
+  background-color: rgba(0, 0, 0, .5); 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +21,9 @@ const Timer = styled.div`
   margin: 10px;
   font-size: 1.5rem;
   background-color: rgba(0, 0, 0, .5); 
-  
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 `;
 
@@ -35,13 +38,14 @@ const TimersView = () => {
   ];
 
   return (
+    timers.map((timer) => (
     <Timers>
-      {timers.map((timer) => (
+        <h2>{timer.title}</h2>
         <Timer key={`timer-${timer.title}`}>
-          <TimerTitle>{timer.title}{timer.C}</TimerTitle>
+          {timer.C}
         </Timer>
-      ))}
     </Timers>
+    ))
   );
 };
 
