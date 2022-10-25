@@ -4,7 +4,7 @@ import styled from "styled-components";
 import DocumentComponent from "../components/documentation/DocumentComponent";
 
 import Loading from "../components/generic/Loading";
-import Countdown from "../components/timers/Countdown";
+import Buttons from "../components/generic/Buttons";
 
 const Container = styled.div`
   display: flex;
@@ -37,14 +37,26 @@ const Documentation = () => {
           ]}
         />
         <DocumentComponent
-          title="Countdown Timer "
-          component={<Countdown />}
+          title="Buttons "
+          component={<Buttons />}
           propDocs={[
             {
-              prop: "reset",
-              description: "returns all settings to their default values and clears any state",
-              type: "string",
-              defaultValue: "medium",
+              prop: "endTime",
+              description: "The time at which a counter stops counting (milliseconds - e.g. 0 for a decrementing counter or 60000 for incrementing",
+              type: "integer",
+              defaultValue: "none",
+            },
+            {
+              prop: "isStarted",
+              description: "Indicates whether a counter has been started or not. \nThis, isPaused, endTime, and time are used in conjuntion to determine what buttons are returned as active or disabled",
+              type: "boolean",
+              defaultValue: "none",
+            },
+            {
+              prop: "isPaused",
+              description: "Indicates whether a counter has been paused or not",
+              type: "boolean",
+              defaultValue: "none",
             },
           ]}
         />

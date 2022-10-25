@@ -1,18 +1,18 @@
 // A timer that counts up to X amount of time (e.g. count up to 2 minutes and 30 seconds, starting at 0)
 import { useState, useEffect } from "react";
 import Panel from "../generic/Panel";
-import Button from "../generic/Button";
+import Button from "../generic/Buttons";
 
 const Stopwatch = () => {
-  const [isActive, setIsActive] = useState(false);
+  const [isStarted, setisStarted] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  const maxTime = 600000; // 10 minutes
+  const endTime = 600000; // 10 minutes
 
   useEffect(() => {
     let interval = null;
   
-    if (isActive && isPaused === false) {
+    if (isStarted && isPaused === false && time !== endTime) {
       interval = setInterval(() => {
         setTime((time) => time + 10 );
       }, 10);
@@ -22,37 +22,36 @@ const Stopwatch = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [isActive, isPaused]);
+  }, [isStarted, isPaused, time]);
 
   const handleStart = () => {
     setTime(0);
-    setIsActive(true);
+    setisStarted(true);
     setIsPaused(false);
   };
   
   const handlePauseResume = () => {
     setIsPaused(!isPaused);
-    console.log("isPaused: " + isPaused)
   };
       
   const handleFastForward = () => {
     setIsPaused(true);
-    setTime(maxTime);
+    setTime(endTime);
   };
   
   const handleReset = () => {
-    setIsActive(false);
+    setisStarted(false);
     setTime(0);
-    //setIsFF(false);
   };
     
   return (
     <div className="stop-watch">
       <Panel time={time}></Panel>
       <Button
+        countDirection='up'
         time={time}
-        maxTime={maxTime}
-        isActive={isActive}
+        endTime={endTime}
+        isStarted={isStarted}
         isPaused={isPaused}
         handleStart={handleStart}
         handlePauseResume={handlePauseResume}

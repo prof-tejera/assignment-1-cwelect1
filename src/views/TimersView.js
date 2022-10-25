@@ -21,7 +21,7 @@ const Timer = styled.div`
   margin: 10px;
   font-size: 1.5rem;
   background-color: rgba(0, 0, 0, .5); 
-  width: 10vw;
+  width: 20vw;
   display: flex;
   flex-direction: column;
   align-items: center;
