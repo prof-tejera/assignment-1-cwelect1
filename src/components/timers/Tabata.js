@@ -39,7 +39,7 @@ const Tabata = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [isStarted, isPaused, time, currentRound, isResting, restTime, totalRounds, workTime]);
+  }, [isStarted, isPaused, time, currentRound, isResting, restTime, totalRounds, workTime, endTime]);
 
   const handleStart = () => {
     if (currentRound === totalRounds) {setCurrentRound(0)} // Reset rounds if previously run
