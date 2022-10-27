@@ -16,13 +16,8 @@ const Timers = styled.section`
   align-items: center;
 `;
 
-const CenteredH2 = styled.h2`
-  background-color: rgba(0, 0, 0, .5);  
-  text-align: center;
-`;
-
 const Timer = styled.div`
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(50, 150, 150, .5);
   border: 1px solid gray;
   border-radius: 1rem;
   display: flex;
