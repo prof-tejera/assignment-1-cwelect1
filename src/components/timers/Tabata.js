@@ -2,8 +2,7 @@
 import { useState, useEffect } from "react";
 import Buttons from "../generic/Buttons";
 import properties from "../../properties.json";
-import DisplayTime from "../generic/DisplayTime";
-import DisplayRounds from "../generic/DisplayRounds";
+import Panel from "../generic/Panel";
 
 const Tabata = () => {
   const workTime = properties.timers[3].work;
@@ -20,16 +19,13 @@ const Tabata = () => {
     let interval = null;
 
     if (isStarted && isPaused === false && time !== endTime) { // Timer is active
-      //console.log('Timer is active');
         interval = setInterval(() => {
           setTime((time) => time - 10 );
       }, 10);
     } else if (time === endTime && (currentRound < totalRounds) && isResting === false) { // Rounds are active Working ended switch to resting period
-      //console.log('Rounds are active and in resting period');
       setIsResting(true);
       setTime(restTime);
     } else if (time === endTime && (currentRound < totalRounds)) { // Rounds are active: Resting ended switch to working period
-      //console.log('Rounds are active and in working period');
       setIsResting(false);
       setCurrentRound(currentRound + 1);
       setTime(workTime);
@@ -54,8 +50,8 @@ const Tabata = () => {
   };
       
   const handleFastForward = () => {
-    //isResting ? setIsResting(false) : setIsResting(true);
     setTime(endTime);
+    setCurrentRound(totalRounds);
     setIsStarted(false);
   };
   
@@ -64,12 +60,10 @@ const Tabata = () => {
     setCurrentRound(0);
     setTime(workTime);
   };
-  //<Panel displayType='tabata' isResting={isResting} time={time} currentRound={currentRound} ></Panel>
-    
+  
   return (
     <div className="tabata">
-      <DisplayRounds displayType='tabata' isResting={isResting} currentRound={currentRound}/>
-      <DisplayTime time={time}/>
+      <Panel time={time} displayType='xy' currentRound={currentRound} isStarted={isStarted}/>
       <Buttons
         countDirection='down'
         time={time}

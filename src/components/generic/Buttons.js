@@ -4,7 +4,8 @@ import styled from "styled-components";
 /*TODO (not all are in this component):
     1. Style whole dam app to be desireable and functional
     2. Update Document Component to wrap text (maybe set max width of th?)
-    3. XY: FF goes 1 too many rounds
+    3. 
+    4. 
 */
 
 const StartButton = styled.button`
@@ -22,15 +23,6 @@ const PauseButton = styled.button`
 const FFButton = styled.button`
   background-color: rgba(241, 0, 0, .5);
 `;
-
-/*const WrappedButton = styled.button`
-  background-color: rgba(255, 122, 89, .5);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-`;*/
 
 const setActiveButtons = (props, buttons) => {
   
@@ -85,20 +77,6 @@ const setActiveButtons = (props, buttons) => {
   ]
 }
 
-/*const Button = (props) => {
-  if(props.countDirection === 'up'){ // STOPWATCH
-    if (!props.isStarted && ((props.time === 0) && props.countDirection === 'up') || !props.isStarted && ((props.time > 0) && props.countDirection === 'down')) {
-      return(setActiveButtons(props, ['start', 'pause' , 'ff']))
-    }
-    else if (props.time === props.endTime) { // Max Time reached or FF clicked.
-      return(setActiveButtons(props, ['start', 'reset']))
-    }
-    else if ((props.isStarted && !props.isPaused && props.time > 0) || (props.isPaused && props.time > 0)) {
-      return(setActiveButtons(props, [props.isPaused ? "resume" : "pause", 'ff', 'reset']))
-    }
-  }
-};*/
-
 const Buttons = (props) => {
   if(props.countDirection === 'up'){ // STOPWATCH
     if (!props.isStarted && props.time === 0) {
@@ -112,7 +90,6 @@ const Buttons = (props) => {
     }
   }
   else { // Countdown, XY, and Tabata
-    //console.log("isStarted: " + props.isStarted + " isPaused: " + props.isPaused + " endTime: " + props.endTime);
     if (!props.isStarted && props.time > 0) {
       return(setActiveButtons(props, ['start', 'pause' , 'ff']))
     }

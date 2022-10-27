@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Button from "../generic/Buttons";
 import properties from "../../properties.json";
-import DisplayTime from "../generic/DisplayTime";
+import Panel from "../generic/Panel";
 
 const Stopwatch = () => {
   const [isStarted, setisStarted] = useState(false);
@@ -44,10 +44,9 @@ const Stopwatch = () => {
     setisStarted(false);
     setTime(0);
   };
-  //<Panel time={time}></Panel>
   return (
     <div className="stop-watch">
-      <DisplayTime time={time}></DisplayTime>
+      <Panel time={time}/>
       <Button
         countDirection='up'
         time={time}

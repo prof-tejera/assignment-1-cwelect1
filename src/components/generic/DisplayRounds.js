@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const StyledDiv = styled.div`
   font-size: 1.5rem;
-  background-color: green;
+  background-color: ${props => props.inputColor || "rgb(27, 238, 16)"};
   height: 2rem;
   padding: 3px;
   display: flex;
@@ -23,7 +23,7 @@ const DisplayRounds = (props) => {
     );
   } else if (props.displayType === 'tabata') {
     return(
-      <StyledDiv className="display-tabata-round">
+      <StyledDiv className="display-tabata-round" inputColor={props.isResting ? "rgb(238, 50, 0)": "rgb(27, 238, 16)"}>
         {tabataRounds}
       </StyledDiv>
     );
