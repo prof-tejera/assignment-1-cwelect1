@@ -39,8 +39,8 @@ const TimersView = () => {
 
   return (
     timers.map((timer) => (
-    <Timers>
-        <h2>{timer.title}</h2>
+    <Timers key={`timer-${timer.title}`}>
+        <h2 key="title">{timer.title}</h2>
         <Timer key={`timer-${timer.title}`}>
           {timer.C}
         </Timer>

@@ -2,13 +2,14 @@
 import { useState, useEffect } from "react";
 import Panel from "../generic/Panel";
 import Button from "../generic/Buttons";
+import properties from "../../properties.json";
 
 const Stopwatch = () => {
   const [isStarted, setisStarted] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(0);
-  const endTime = 600000; // 10 minutes
-
+  const endTime = properties.timers[0].end;
+  
   useEffect(() => {
     let interval = null;
   

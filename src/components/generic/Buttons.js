@@ -3,8 +3,7 @@ import styled from "styled-components";
 
 /*TODO (not all are in this component):
     1. Style whole dam app to be desireable and functional
-    2. Fix "Each child in a list should have a unique "key" prop. See https://reactjs.org/link/warning-keys for more information."
-    3. Update Document Component to wrap text
+    2. Update Document Component to wrap text (maybe set max width of th?)
 */
 
 const StartButton = styled.button`
@@ -33,11 +32,11 @@ const WrappedButton = styled.button`
 `;
 const setActiveButtons = (props, buttons) => {
   
-  const startButton = <StartButton onClick={props.handleStart}>Start</StartButton>;
-  const pauseButton = <PauseButton onClick={props.handlePauseResume}>Pause</PauseButton>;
-  const resumeButton = <PauseButton onClick={props.handlePauseResume}>Resume</PauseButton>;
-  const ffButton = <FFButton onClick={props.handleFastForward}>Fast Forward</FFButton>;
-  const resetButton = <ResetButton onClick={props.handleReset}>Reset</ResetButton>;
+  const startButton = <StartButton key="start-button" onClick={props.handleStart}>Start</StartButton>;
+  const pauseButton = <PauseButton key="pause-button" onClick={props.handlePauseResume}>Pause</PauseButton>;
+  const resumeButton = <PauseButton key="resume-button" onClick={props.handlePauseResume}>Resume</PauseButton>;
+  const ffButton = <FFButton key="ff-button" onClick={props.handleFastForward}>Fast Forward</FFButton>;
+  const resetButton = <ResetButton key="reset-button" onClick={props.handleReset}>Reset</ResetButton>;
 
   let htmlToReturn = [];
 
@@ -78,7 +77,7 @@ const setActiveButtons = (props, buttons) => {
     );
   }
   return[
-    <div>
+    <div key="buttons">
       {htmlToReturn}
     </div>
   ]
@@ -104,7 +103,7 @@ const Buttons = (props) => {
       return(setActiveButtons(props, ['start', 'pause' , 'ff']))
     }
     else if (props.time === props.endTime) { // Max Time reached or FF clicked.
-      return(setActiveButtons(props, ['start', 'reset']))
+      return(setActiveButtons(props, ['reset']))
     }
     else if ((props.isStarted && !props.isPaused && props.time > 0) || (props.isPaused && props.time > 0)) {
       return(setActiveButtons(props, [props.isPaused ? "resume" : "pause", 'ff', 'reset']))
@@ -116,7 +115,7 @@ const Buttons = (props) => {
       return(setActiveButtons(props, ['start', 'pause' , 'ff']))
     }
     else if (props.time === props.endTime) { // End Time reached or FF clicked.
-      return(setActiveButtons(props, ['start', 'reset']))
+      return(setActiveButtons(props, ['reset']))
     }
     else if ((props.isStarted && !props.isPaused && props.time > props.endTime) || (props.isPaused && props.time > props.endTime)) {
       return(setActiveButtons(props, [props.isPaused ? "resume" : "pause", 'ff', 'reset']))

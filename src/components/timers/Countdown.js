@@ -1,14 +1,15 @@
-// A timer that counts up to X amount of time (e.g. count up to 2 minutes and 30 seconds, starting at 0)
+// A timer that counts from a specified time (in milliseconds) to 0 (e.g. count down from 2 minutes and 30 seconds to 0)
 import { useState, useEffect } from "react";
 import Panel from "../generic/Panel";
 import Buttons from "../generic/Buttons";
+import properties from "../../properties.json";
 
 const Countdown = () => {
-  const startTime = 5000;
+  const startTime = properties.timers[1].start;
+  const endTime = properties.timers[1].end;
   const [isStarted, setisStarted] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(startTime);
-  const endTime = 0;
 
   useEffect(() => {
     let interval = null;
@@ -45,7 +46,7 @@ const Countdown = () => {
   };
     
   return (
-    <div className="stop-watch">
+    <div className="countdown">
       <Panel endTime={endTime} time={time}></Panel>
       <Buttons
         countDirection='down'
