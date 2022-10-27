@@ -7,15 +7,37 @@ import XY from "../components/timers/XY";
 import Tabata from "../components/timers/Tabata";
 
 const Timers = styled.section`
+  width: 90%;
+  height: 25rem;
+  display: grid;
+  padding: 20px;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+`;
+
+/*const Timers = styled.section`
   height: 35vh;
   width: 100vw;
   background-color: rgba(0, 0, 0, .5); 
   display: flex;
   flex-direction: column;
   align-items: center;
+`;*/
+
+const CenteredH2 = styled.h2`
+  text-align: center;
 `;
 
 const Timer = styled.div`
+
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+/*const Timer = styled.div`
   border: 1px solid gray;
   padding: 20px;
   margin: 10px;
@@ -25,7 +47,7 @@ const Timer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`;*/
 
 const TimerTitle = styled.div``;
 
@@ -38,6 +60,18 @@ const TimersView = () => {
   ];
 
   return (
+    <Timers>
+      {timers.map((timer) => (
+        <div>
+          <CenteredH2>{timer.title}</CenteredH2>
+          <Timer key={`timer-${timer.title}`}>
+            {timer.C}
+          </Timer>
+        </div>))
+      }
+    </Timers>
+    )
+  /*return (
     timers.map((timer) => (
     <Timers key={`timer-${timer.title}`}>
         <h2 key="title">{timer.title}</h2>
@@ -46,7 +80,7 @@ const TimersView = () => {
         </Timer>
     </Timers>
     ))
-  );
+  );*/
 };
 
 export default TimersView;

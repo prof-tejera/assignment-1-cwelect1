@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Panel from "../generic/Panel";
 import Buttons from "../generic/Buttons";
 import properties from "../../properties.json";
+import DisplayTime from "../generic/DisplayTime";
+import DisplayRounds from "../generic/DisplayRounds";
 
 const Tabata = () => {
   const workTime = properties.timers[3].work;
@@ -63,10 +65,12 @@ const Tabata = () => {
     setCurrentRound(0);
     setTime(workTime);
   };
+  //<Panel displayType='tabata' isResting={isResting} time={time} currentRound={currentRound} ></Panel>
     
   return (
     <div className="tabata">
-      <Panel displayType='tabata' isResting={isResting} time={time} currentRound={currentRound} ></Panel>
+      <DisplayRounds displayType='tabata' isResting={isResting} currentRound={currentRound}/>
+      <DisplayTime time={time}/>
       <Buttons
         countDirection='down'
         time={time}

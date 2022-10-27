@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Panel from "../generic/Panel";
 import Buttons from "../generic/Buttons";
 import properties from "../../properties.json";
+import DisplayTime from "../generic/DisplayTime";
 
 const Countdown = () => {
   const startTime = properties.timers[1].start;
@@ -44,10 +45,10 @@ const Countdown = () => {
     setisStarted(false);
     setTime(startTime);
   };
-    
+    //<Panel endTime={endTime} time={time}></Panel>
   return (
     <div className="countdown">
-      <Panel endTime={endTime} time={time}></Panel>
+      <DisplayTime endTime={endTime} time={time}></DisplayTime>
       <Buttons
         countDirection='down'
         time={time}

@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import Panel from "../generic/Panel";
 import Buttons from "../generic/Buttons";
 import properties from "../../properties.json";
+import DisplayTime from "../generic/DisplayTime";
+import DisplayRounds from "../generic/DisplayRounds";
 
 const XY = () => {
   const startTime = properties.timers[2].start;
@@ -53,10 +55,11 @@ const XY = () => {
     setCurrentRound(0);
     setTime(startTime);
   };
-    
+    //<Panel displayType='xy' time={time} currentRound={currentRound} ></Panel>
   return (
     <div className="xy">
-      <Panel displayType='xy' time={time} currentRound={currentRound} ></Panel>
+      <DisplayRounds displayType='xy' currentRound={currentRound}/>
+      <DisplayTime time={time}/>
       <Buttons
         countDirection='down'
         time={time}

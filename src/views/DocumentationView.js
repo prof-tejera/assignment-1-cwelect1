@@ -48,7 +48,7 @@ const Documentation = () => {
             },
             {
               prop: "isStarted",
-              description: "Indicates whether a counter has been started or not. \nThis, isPaused, endTime, and time are used in conjuntion to determine what buttons are returned as active or disabled",
+              description: "Indicates whether a counter has been started or not. This, isPaused, endTime, and time are used in conjuntion to determine what buttons are returned as active or disabled",
               type: "boolean",
               defaultValue: "none",
             },
