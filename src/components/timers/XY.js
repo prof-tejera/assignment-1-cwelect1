@@ -1,6 +1,5 @@
 // A timer that counts from a specified time (in milliseconds) to 0 (e.g. count down from 2 minutes and 30 seconds to 0)
 import { useState, useEffect } from "react";
-import Panel from "../generic/Panel";
 import Buttons from "../generic/Buttons";
 import properties from "../../properties.json";
 import DisplayTime from "../generic/DisplayTime";

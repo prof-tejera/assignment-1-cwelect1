@@ -49,7 +49,6 @@ const Timer = styled.div`
   align-items: center;
 `;*/
 
-const TimerTitle = styled.div``;
 
 const TimersView = () => {
   const timers = [

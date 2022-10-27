@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 
-const StyledDiv = styled.div`
+/*const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+`;*/
 
 const Panel = (props) => {
   const minutes = <span className="digits">{("0" + Math.floor((props.time / 60000) % 60)).slice(-2)}:</span>;

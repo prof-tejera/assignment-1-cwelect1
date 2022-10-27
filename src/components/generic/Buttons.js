@@ -4,6 +4,7 @@ import styled from "styled-components";
 /*TODO (not all are in this component):
     1. Style whole dam app to be desireable and functional
     2. Update Document Component to wrap text (maybe set max width of th?)
+    3. XY: FF goes 1 too many rounds
 */
 
 const StartButton = styled.button`
@@ -22,14 +23,15 @@ const FFButton = styled.button`
   background-color: rgba(241, 0, 0, .5);
 `;
 
-const WrappedButton = styled.button`
+/*const WrappedButton = styled.button`
   background-color: rgba(255, 122, 89, .5);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-`;
+`;*/
+
 const setActiveButtons = (props, buttons) => {
   
   const startButton = <StartButton key="start-button" onClick={props.handleStart}>Start</StartButton>;
