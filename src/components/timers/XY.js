@@ -30,7 +30,7 @@ const XY = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [isStarted, isPaused, time, currentRound]);
+  }, [isStarted, isPaused, time, currentRound, endTime, startTime, totalRounds]);
 
   const handleStart = () => {
     if (currentRound === totalRounds) {setCurrentRound(0)} // Reset rounds if previously run

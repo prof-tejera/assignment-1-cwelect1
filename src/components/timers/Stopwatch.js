@@ -1,6 +1,5 @@
 // A timer that counts up to X amount of time (e.g. count up to 2 minutes and 30 seconds, starting at 0)
 import { useState, useEffect } from "react";
-import Panel from "../generic/Panel";
 import Button from "../generic/Buttons";
 import properties from "../../properties.json";
 import DisplayTime from "../generic/DisplayTime";
@@ -24,7 +23,7 @@ const Stopwatch = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [isStarted, isPaused, time]);
+  }, [isStarted, isPaused, time, endTime]);
 
   const handleStart = () => {
     setTime(0);

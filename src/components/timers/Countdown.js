@@ -23,7 +23,7 @@ const Countdown = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [isStarted, isPaused, time]);
+  }, [isStarted, isPaused, time, endTime]);
 
   const handleStart = () => {
     setTime(startTime);
