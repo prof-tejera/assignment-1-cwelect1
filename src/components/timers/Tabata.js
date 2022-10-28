@@ -8,7 +8,7 @@ const Tabata = () => {
   const workTime = properties.timers[3].work;
   const restTime = properties.timers[3].rest;
   const endTime = properties.timers[3].end;
-  let totalRounds = properties.timers[3].rounds;
+  const totalRounds = properties.timers[3].rounds;
   const [isStarted, setIsStarted] = useState(false);
   const [isPaused, setIsPaused] = useState(true);
   const [time, setTime] = useState(workTime);
@@ -63,7 +63,7 @@ const Tabata = () => {
 
   return (
     <div className="tabata">
-      <Panel time={time} displayType='tabata' currentRound={currentRound} isResting={isResting}/>
+      <Panel time={time} displayType='tabata' currentRound={currentRound} totalRounds={totalRounds} isResting={isResting}/>
       <Buttons
         countDirection='down'
         time={time}

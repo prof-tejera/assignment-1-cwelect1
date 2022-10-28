@@ -8,6 +8,10 @@ const ColoredDiv = styled.div`
   margin: 5px;
 `;
 
+const ClearDiv = styled.div`
+  margin: 5px;
+`;
+
 const Panel = (props) => {
 
   const displayRound = <DisplayRounds displayType={props.displayType} currentRound={props.currentRound} isResting={props.isResting}/>;
@@ -22,10 +26,10 @@ const Panel = (props) => {
     );
   } else if (props.displayType === 'xy') {
     return(
-      <div className={props.displayType + "-timer"}>
+      <ClearDiv className={props.displayType + "-timer"}>
         {displayRound}
         {displayTime}
-      </div>
+      </ClearDiv>
     );
   } else {
     return(
