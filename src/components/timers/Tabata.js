@@ -68,7 +68,6 @@ const Tabata = () => {
         countDirection='down'
         time={time}
         endTime={endTime}
-        includeMilliseconds={false}
         isStarted={isStarted}
         isPaused={isPaused}
         isResting={isResting}
