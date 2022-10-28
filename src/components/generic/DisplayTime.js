@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const StyledDiv = styled.div`
   font-size: 2rem;
-  background-color: ${props => props.inputColor || "rgb(27, 238, 16)"};
   height: 3rem;
   text-align: center;
 `;
@@ -14,7 +13,7 @@ const DisplayTime = (props) => {
   const milliseconds = <span className="digits mili-sec">.{("0" + ((props.time / 10) % 100)).slice(-2)}</span>;
   
   return(
-    <StyledDiv className="display-time" inputColor={props.isResting ? "rgb(238, 50, 0)": "rgb(27, 238, 16)"}>
+    <StyledDiv className="display-time">
       {minutes}
       {seconds}
       {milliseconds}

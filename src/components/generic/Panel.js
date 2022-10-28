@@ -1,20 +1,36 @@
 import React from "react";
+import styled from "styled-components";
 import DisplayTime from "../generic/DisplayTime";
 import DisplayRounds from "../generic/DisplayRounds";
 
+const ColoredDiv = styled.div`
+  background-color: ${props => props.inputColor || "rgb(27, 238, 16)"};
+  margin: 5px;
+`;
+
 const Panel = (props) => {
 
-  if ((props.displayType === 'xy') || (props.displayType === 'tabata' )) {
+  const displayRound = <DisplayRounds displayType={props.displayType} currentRound={props.currentRound} isResting={props.isResting}/>;
+  const displayTime = <DisplayTime time={props.time} isStarted={props.isStarted}/>;
+
+  if (props.displayType === 'tabata') {
     return(
-      <div className="xy-timer">
-        <DisplayRounds displayType={props.displayType} currentRound={props.currentRound} isStarted={props.isStarted}/>
-        <DisplayTime time={props.time} isStarted={props.isStarted}/>
+      <ColoredDiv className={props.displayType + "-timer"} inputColor={props.isResting ? "rgb(238, 50, 0)": "rgb(27, 238, 16)"}>
+        {displayRound}
+        {displayTime}
+      </ColoredDiv>
+    );
+  } else if (props.displayType === 'xy') {
+    return(
+      <div className={props.displayType + "-timer"}>
+        {displayRound}
+        {displayTime}
       </div>
     );
   } else {
     return(
       <div className="timer">
-        <DisplayTime time={props.time} isStarted={props.isStarted}/>
+        {displayTime}
       </div>
     );
   }

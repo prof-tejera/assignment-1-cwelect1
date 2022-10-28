@@ -6,7 +6,7 @@ import XY from "../components/timers/XY";
 import Tabata from "../components/timers/Tabata";
 
 const Timers = styled.section`
-  width: 50%;
+  width: 90%;
   height: 20rem;
   display: grid;
   padding: 20px;
@@ -42,7 +42,7 @@ const TimersView = () => {
   return (
     <Timers>
       {timers.map((timer) => (
-        <div>
+        <div key={timer.title}>
           <Timer key={`timer-${timer.title}`}>
             <Title>{timer.title}</Title>
           {timer.C}
@@ -51,16 +51,6 @@ const TimersView = () => {
       }
     </Timers>
     )
-  /*return (
-    timers.map((timer) => (
-    <Timers key={`timer-${timer.title}`}>
-        <h2 key="title">{timer.title}</h2>
-        <Timer key={`timer-${timer.title}`}>
-          {timer.C}
-        </Timer>
-    </Timers>
-    ))
-  );*/
 };
 
 export default TimersView;

@@ -60,10 +60,10 @@ const Tabata = () => {
     setCurrentRound(0);
     setTime(workTime);
   };
-  
+
   return (
     <div className="tabata">
-      <Panel time={time} displayType='xy' currentRound={currentRound} isStarted={isStarted}/>
+      <Panel time={time} displayType='tabata' currentRound={currentRound} isResting={isResting}/>
       <Buttons
         countDirection='down'
         time={time}

@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
-/*TODO (not all are in this component):
-    1. Style whole dam app to be desireable and functional
+/*TODO (not necessarily specific to this component):
+    1. Style app to be desireable, accessible, and professional
     2. Update Document Component to wrap text (maybe set max width of th?)
-    3. 
+    3. Make code prettier (naming, styling)
     4. 
 */
 
